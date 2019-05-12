@@ -1,0 +1,38 @@
+.section-shoecafe {
+  padding-top: 54px;
+}
+
+#carousel-item {
+  max-height: 700px;
+}
+
+.carousel-image {
+  transform: translateY(-25%);
+}
+
+#carousel-detail {
+  color: black;
+}
+
+.carousel-image2 {
+  /* transform: translateY(10%); */
+  height: 700px;
+}
+
+.carousel-control-next-icon {
+  height: 70px;
+  width: 70px;
+}
+
+.carousel-control-prev-icon {
+  height: 70px;
+  width: 70px;
+}
+.carousel-control-prev-icon {
+  height: 70px;
+  width: 70px;
+}
+.carousel-indicators li {
+  height: 10px;
+  width: 50px;
+}
