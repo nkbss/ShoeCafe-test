@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { ShoeCafeLayout } from '../Component/ShoeCafe/Layout'
 import { HeaderTab } from '../Component/HeaderTab'
+import { SellPostLayout } from '../Component/SellPost/Layout'
 
 class index extends Component {
   render() {
     return (
       <React.Fragment>
         <HeaderTab />
-        <ShoeCafeLayout />
+        {/* <ShoeCafeLayout /> */}
+        <SellPostLayout />
       </React.Fragment>
     )
   }

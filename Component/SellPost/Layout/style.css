@@ -1,0 +1,24 @@
+.section-sellpost {
+  padding-top: 70px;
+}
+
+.sellpost-header {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.sellpost-bottom-nopost {
+  padding-top: 4%;
+  color: grey;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sellpost-bottom-button {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}

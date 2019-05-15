@@ -36,3 +36,25 @@
   height: 10px;
   width: 50px;
 }
+
+/* recommend section*/
+
+#recommend-section {
+  padding-top: 15px;
+}
+
+.recommend-head {
+  font-size: 40px;
+  color: grey;
+  font-weight: bold;
+}
+
+#recommend-cardgroup {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#recommend-card-image {
+  max-width: 374px;
+  max-height: 250px;
+}
