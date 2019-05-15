@@ -5,50 +5,89 @@ import {
   Input,
   TextArea,
   Form,
-  Button
+  Button,
+  Dropdown
 } from '../../../node_modules/semantic-ui-react'
+
+const size = [
+  { key: 5, text: '5', value: '5' },
+  { key: 5.5, text: '5.5', value: '5.5' },
+  { key: 6, text: '6', value: '6' },
+  { key: 6.5, text: '6.5', value: '6.5' },
+  { key: 7, text: '7', value: '7' },
+  { key: 7.5, text: '7.5', value: '7.5' },
+  { key: 8, text: '8', value: '8' },
+  { key: 8.5, text: '8.5', value: '8.5' },
+  { key: 9, text: '9', value: '9' },
+  { key: 9.5, text: '9.5', value: '9.5' },
+  { key: 10, text: '10', value: '10' },
+  { key: 10.5, text: '10.5', value: '10.5' },
+  { key: 11, text: '11', value: '11' },
+  { key: 11.5, text: '11.5', value: '11.5' },
+  { key: 12, text: '12', value: '12' }
+]
 
 const SellPostCard = () => {
   return (
     <React.Fragment>
       <Modal open={true} centered={false} size="small">
-        <Modal.Header>Post</Modal.Header>
+        <Modal.Header id="sellpost-modal-header">Post</Modal.Header>
         <Modal.Content>
-          <Grid verticalAlign="middle" textAlign="center">
+          <Grid
+            verticalAlign="middle"
+            textAlign="center"
+            className="sellpost-modal-grid"
+          >
             <Grid.Row columns={2}>
-              <Grid.Column>Name</Grid.Column>
+              <Grid.Column>
+                <label>Name</label>
+              </Grid.Column>
               <Grid.Column>
                 <Input placeholder="Name" name="name" fluid size="large" />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2}>
-              <Grid.Column>Description</Grid.Column>
+              <Grid.Column>
+                <label>Detail</label>
+              </Grid.Column>
               <Grid.Column>
                 <Form size="large">
-                  <TextArea name="description" placeholder="Description" />
+                  <TextArea name="detail" placeholder="Detail" />
                 </Form>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={3}>
-              <Grid.Column width={8}>Size</Grid.Column>
+              <Grid.Column width={8}>
+                <label>Size</label>
+              </Grid.Column>
               <Grid.Column width={3}>
-                <Input name="size" fluid size="large" />
+                <Dropdown
+                  options={size}
+                  selection
+                  size="large"
+                  name="size"
+                  fluid
+                />
               </Grid.Column>
               <Grid.Column width={5} textAlign="left">
-                Us
+                <label>US</label>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={3}>
-              <Grid.Column width={8}>Price</Grid.Column>
+              <Grid.Column width={8}>
+                <label>Price</label>
+              </Grid.Column>
               <Grid.Column width={3}>
                 <Input name="price" placeholder="price" fluid size="large" />
               </Grid.Column>
               <Grid.Column width={5} textAlign="left">
-                Baht
+                <label>USD</label>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2}>
-              <Grid.Column>Picture</Grid.Column>
+              <Grid.Column>
+                <label>Picture</label>
+              </Grid.Column>
               <Grid.Column>
                 <Button color="blue" size="large">
                   Upload

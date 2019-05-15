@@ -22,3 +22,15 @@
   justify-content: center;
   padding-top: 20px;
 }
+
+#sellpost-modal-header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.sellpost-modal-grid label {
+  font-size: 18px;
+  font-weight: bold;
+  color: grey;
+}
