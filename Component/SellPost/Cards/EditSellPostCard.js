@@ -35,7 +35,8 @@ const EditSellPostCard = props => {
           open={props.state.editpostmodal}
           centered={false}
           size="small"
-          onClose={props.closeModalCreatePost}
+          onClose={props.closeModalEdit}
+          closeIcon
         >
           <Modal.Header id="sellpost-modal-header">Edit Post</Modal.Header>
           <Modal.Content>
@@ -126,14 +127,25 @@ const EditSellPostCard = props => {
                 </Button>
               </Grid.Column>
             </Grid.Row> */}
-              <Grid.Row columns={1}>
-                <Grid.Column>
+              <Grid.Row columns={2}>
+                <Grid.Column textAlign="right">
                   <Button
                     color="green"
                     size="large"
                     onClick={index => props.editPost(props.state.indexeditpost)}
                   >
                     Edit
+                  </Button>
+                </Grid.Column>
+                <Grid.Column textAlign="left">
+                  <Button
+                    color="red"
+                    size="large"
+                    onClick={index =>
+                      props.deletePost(props.state.indexeditpost)
+                    }
+                  >
+                    Delete
                   </Button>
                 </Grid.Column>
               </Grid.Row>

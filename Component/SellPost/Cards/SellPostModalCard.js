@@ -35,6 +35,7 @@ const SellPostModalCard = props => {
         centered={false}
         size="small"
         onClose={props.closeModalCreatePost}
+        closeIcon
       >
         <Modal.Header id="sellpost-modal-header">Post</Modal.Header>
         <Modal.Content>

@@ -30,6 +30,12 @@
   font-size: 20px;
 }
 
+#topmenu-center-item-active {
+  height: 100%;
+  font-size: 20px;
+  color: #e04a00;
+}
+
 #topmenu-center-item:hover {
   color: #e04a00;
 }

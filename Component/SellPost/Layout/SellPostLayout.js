@@ -117,10 +117,10 @@ class SellPostLayout extends Component {
     }
   }
 
-  uploadStatus = () => {
-    if (this.state.filesphoto != null) {
-      this.setState({ upload: true })
-    }
+  deletePost = index => {
+    this.state.post[index] = null
+    this.state.post = this.state.post.filter(data => data !== null)
+    this.closeModalEdit()
   }
 
   openModalUploadPicture = () => {
@@ -160,6 +160,8 @@ class SellPostLayout extends Component {
               handleInput={this.handleInput}
               editPost={this.editPost}
               state={this.state}
+              closeModalEdit={this.closeModalEdit}
+              deletePost={this.deletePost}
             />
           ) : null}
         </div>

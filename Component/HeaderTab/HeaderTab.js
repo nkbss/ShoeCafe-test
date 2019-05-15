@@ -12,7 +12,9 @@ class HeaderTab extends Component {
         <Menu.Menu id="topmenu-center">
           <Menu.Item id="topmenu-center-item">Home</Menu.Item>
           <Menu.Item id="topmenu-center-item">Shoes</Menu.Item>
-          <Menu.Item id="topmenu-center-item">Sell</Menu.Item>
+          <Menu.Item active id="topmenu-center-item-active">
+            Sell
+          </Menu.Item>
         </Menu.Menu>
         <Menu.Menu id="topmenu-right">
           <Menu.Item id="topmenu-search">
