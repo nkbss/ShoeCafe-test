@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListPostCard, ListPostBottomCard, SellPostCard } from '../Cards'
+import { ListPostCard, ListPostBottomCard, SellPostModalCard } from '../Cards'
 import './style.css'
 import { UploadPictureCard } from '../Cards/UploadPictureCard'
 class SellPostLayout extends Component {
@@ -21,13 +21,30 @@ class SellPostLayout extends Component {
 
   openModalCreatePost = () => {
     this.setState({
+      postmodal: true
+    })
+  }
+
+  closeModalCreatePost = () => {
+    this.setState({
       name: null,
       detail: null,
       size: null,
       price: null,
       picture: null,
-      postmodal: true
+      postmodal: false
     })
+  }
+
+  createPost = () => {
+    this.state.post.push({
+      name: this.state.name,
+      detail: this.state.detail,
+      size: this.state.size,
+      price: this.state.price,
+      picture: this.state.picture
+    })
+    this.closeModalCreatePost()
   }
 
   handlePicture = event => {
@@ -76,19 +93,21 @@ class SellPostLayout extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state.post)
     return (
       <React.Fragment>
         <div className="section-sellpost">
-          <ListPostCard />
+          <ListPostCard state={this.state} />
           <ListPostBottomCard
             state={this.state}
             openModalCreatePost={this.openModalCreatePost}
           />
-          <SellPostCard
+          <SellPostModalCard
             state={this.state}
             handleInput={this.handleInput}
             openModalUploadPicture={this.openModalUploadPicture}
+            closeModalCreatePost={this.closeModalCreatePost}
+            createPost={this.createPost}
           />
           <UploadPictureCard
             state={this.state}
