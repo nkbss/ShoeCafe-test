@@ -10,7 +10,14 @@ const ListPostCard = props => {
       </div>
       <Card.Group itemsPerRow={5} id="sellpost-cardgroup">
         {props.state.post.map((data, index) => {
-          return <SellPostCard key={index} data={data} />
+          return (
+            <SellPostCard
+              key={index}
+              index={index}
+              data={data}
+              openModalEdit={props.openModalEdit}
+            />
+          )
         })}
       </Card.Group>
     </React.Fragment>
