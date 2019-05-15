@@ -50,7 +50,7 @@ const EditSellPostCard = props => {
                 </Grid.Column>
                 <Grid.Column>
                   <Input
-                    value={props.data.name}
+                    defaultValue={props.data.name}
                     placeholder="Name"
                     name="name"
                     fluid
