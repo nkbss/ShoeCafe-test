@@ -10,7 +10,11 @@ const ListPostBottomCard = props => {
         </div>
       ) : null}
       <div className="sellpost-bottom-button">
-        <Button color="teal" size="large">
+        <Button
+          color="teal"
+          size="large"
+          onClick={() => props.openModalCreatePost()}
+        >
           Create Post
         </Button>
       </div>

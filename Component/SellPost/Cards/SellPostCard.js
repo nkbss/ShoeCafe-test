@@ -27,10 +27,10 @@ const size = [
   { key: 12, text: '12', value: '12' }
 ]
 
-const SellPostCard = () => {
+const SellPostCard = props => {
   return (
     <React.Fragment>
-      <Modal open={true} centered={false} size="small">
+      <Modal open={props.state.postmodal} centered={false} size="small">
         <Modal.Header id="sellpost-modal-header">Post</Modal.Header>
         <Modal.Content>
           <Grid
@@ -43,7 +43,13 @@ const SellPostCard = () => {
                 <label>Name</label>
               </Grid.Column>
               <Grid.Column>
-                <Input placeholder="Name" name="name" fluid size="large" />
+                <Input
+                  placeholder="Name"
+                  name="name"
+                  fluid
+                  size="large"
+                  onChange={props.handleInput}
+                />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2}>
@@ -52,7 +58,11 @@ const SellPostCard = () => {
               </Grid.Column>
               <Grid.Column>
                 <Form size="large">
-                  <TextArea name="detail" placeholder="Detail" />
+                  <TextArea
+                    name="detail"
+                    placeholder="Detail"
+                    onChange={props.handleInput}
+                  />
                 </Form>
               </Grid.Column>
             </Grid.Row>
@@ -67,6 +77,7 @@ const SellPostCard = () => {
                   size="large"
                   name="size"
                   fluid
+                  onChange={props.handleInput}
                 />
               </Grid.Column>
               <Grid.Column width={5} textAlign="left">
@@ -78,7 +89,14 @@ const SellPostCard = () => {
                 <label>Price</label>
               </Grid.Column>
               <Grid.Column width={3}>
-                <Input name="price" placeholder="price" fluid size="large" />
+                <Input
+                  name="price"
+                  placeholder="price"
+                  fluid
+                  type="number"
+                  size="large"
+                  onChange={props.handleInput}
+                />
               </Grid.Column>
               <Grid.Column width={5} textAlign="left">
                 <label>USD</label>
@@ -89,7 +107,11 @@ const SellPostCard = () => {
                 <label>Picture</label>
               </Grid.Column>
               <Grid.Column>
-                <Button color="blue" size="large">
+                <Button
+                  color="blue"
+                  size="large"
+                  onClick={() => props.openModalUploadPicture()}
+                >
                   Upload
                 </Button>
               </Grid.Column>
