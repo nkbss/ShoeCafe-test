@@ -7,6 +7,9 @@ import {
 } from '../Cards'
 import './style.css'
 import { UploadPictureCard } from '../Cards/UploadPictureCard'
+import { connect } from 'react-redux'
+import * as actionTypes from '../../../actions/action'
+
 class SellPostLayout extends Component {
   state = {
     post: [],
@@ -75,14 +78,8 @@ class SellPostLayout extends Component {
     })
   }
 
-  createPost = () => {
-    this.state.post.push({
-      name: this.state.name,
-      detail: this.state.detail,
-      size: this.state.size,
-      price: this.state.price,
-      picture: this.state.picture
-    })
+  createPost = data => {
+    this.props.createPost(data)
     this.closeModalCreatePost()
   }
 
@@ -103,14 +100,7 @@ class SellPostLayout extends Component {
         this.state.filespicture,
         this.state.filespicture.name
       )
-      //   axios.post(API_SERVICE + 'upload', upload).then(res => {
-      //     this.setState({
-      //       status: res.data.success,
-      //       pathphoto: res.data.path,
-      //       uploadphoto: false,
-      //       upload: false
-      //     })
-      //   })
+
       console.log(upload)
     } else {
       this.setState({ warningupload: true })
@@ -132,13 +122,17 @@ class SellPostLayout extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.props.post)
     return (
       <React.Fragment>
         <div className="section-sellpost">
-          <ListPostCard state={this.state} openModalEdit={this.openModalEdit} />
-          <ListPostBottomCard
+          <ListPostCard
             state={this.state}
+            openModalEdit={this.openModalEdit}
+            post={this.props.post}
+          />
+          <ListPostBottomCard
+            post={this.props.post}
             openModalCreatePost={this.openModalCreatePost}
           />
           <SellPostModalCard
@@ -147,6 +141,7 @@ class SellPostLayout extends Component {
             openModalUploadPicture={this.openModalUploadPicture}
             closeModalCreatePost={this.closeModalCreatePost}
             createPost={this.createPost}
+            createPostTest={this.props.createPostTest}
           />
           <UploadPictureCard
             state={this.state}
@@ -170,4 +165,19 @@ class SellPostLayout extends Component {
   }
 }
 
-export { SellPostLayout }
+const mapStateToProps = state => {
+  return {
+    post: state.post
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createPost: data => dispatch({ type: actionTypes.CREATEPOST, data: data })
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SellPostLayout)

@@ -127,7 +127,9 @@ const SellPostModalCard = props => {
                 <Button
                   color="green"
                   size="large"
-                  onClick={() => props.createPost()}
+                  onClick={() => {
+                    props.createPost(props.state)
+                  }}
                 >
                   Post
                 </Button>

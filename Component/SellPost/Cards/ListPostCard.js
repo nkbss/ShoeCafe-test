@@ -9,7 +9,7 @@ const ListPostCard = props => {
         <h1>Sell Post</h1>
       </div>
       <Card.Group itemsPerRow={5} id="sellpost-cardgroup">
-        {props.state.post.map((data, index) => {
+        {props.post.map((data, index) => {
           return (
             <SellPostCard
               key={index}

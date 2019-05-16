@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ShoeCafeLayout } from '../Component/ShoeCafe/Layout'
 import { HeaderTab } from '../Component/HeaderTab'
-import { SellPostLayout } from '../Component/SellPost/Layout'
+import SellPostLayout from '../Component/SellPost/Layout/SellPostLayout'
 
 class index extends Component {
   render() {

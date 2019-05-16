@@ -4,7 +4,7 @@ import { Button } from '../../../node_modules/semantic-ui-react'
 const ListPostBottomCard = props => {
   return (
     <React.Fragment>
-      {props.state.post.length === 0 ? (
+      {props.post.length === 0 ? (
         <div className="sellpost-bottom-nopost">
           <h2>-----------------No post-----------------</h2>
         </div>
