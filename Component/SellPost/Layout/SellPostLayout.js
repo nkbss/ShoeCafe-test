@@ -21,7 +21,8 @@ class SellPostLayout extends Component {
     postmodal: false,
     uploadpicture: false,
     indexeditpost: null,
-    editpostmodal: false
+    editpostmodal: false,
+    warning: false
   }
 
   handleInput = (e, data) => {
@@ -50,7 +51,8 @@ class SellPostLayout extends Component {
 
   openModalCreatePost = () => {
     this.setState({
-      postmodal: true
+      postmodal: true,
+      warning: false
     })
   }
 
@@ -66,8 +68,18 @@ class SellPostLayout extends Component {
   }
 
   createPost = data => {
-    this.props.createPost(data)
-    this.closeModalCreatePost()
+    if (
+      data.name != '' &&
+      data.detail != '' &&
+      data.size != '' &&
+      data.price != '' &&
+      (data.name && data.detail && data.size && data.price)
+    ) {
+      this.props.createPost(data)
+      this.closeModalCreatePost()
+    } else {
+      this.setState({ warning: true })
+    }
   }
 
   handlePicture = event => {

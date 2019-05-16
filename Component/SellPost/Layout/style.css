@@ -31,6 +31,10 @@
   font-weight: bold;
 }
 
+.sellpost-warning {
+  color: red;
+}
+
 .sellpost-modal-grid label {
   font-size: 18px;
   font-weight: bold;

@@ -37,7 +37,14 @@ const SellPostModalCard = props => {
         onClose={props.closeModalCreatePost}
         closeIcon
       >
-        <Modal.Header id="sellpost-modal-header">Post</Modal.Header>
+        <Modal.Header id="sellpost-modal-header">
+          Post
+          {props.state.warning ? (
+            <div className="sellpost-warning">
+              <h3>Please enter your information!</h3>
+            </div>
+          ) : null}
+        </Modal.Header>
         <Modal.Content>
           <Grid
             verticalAlign="middle"
