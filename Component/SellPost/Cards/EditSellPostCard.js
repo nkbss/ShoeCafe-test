@@ -132,7 +132,7 @@ const EditSellPostCard = props => {
                   <Button
                     color="green"
                     size="large"
-                    onClick={index => props.editPost(props.state.indexeditpost)}
+                    onClick={data => props.editPost(props.state)}
                   >
                     Edit
                   </Button>

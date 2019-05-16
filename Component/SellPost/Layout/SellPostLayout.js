@@ -30,6 +30,7 @@ class SellPostLayout extends Component {
   }
 
   openModalEdit = index => {
+    console.log('clicked')
     this.setState({ editpostmodal: true, indexeditpost: index })
   }
 
@@ -44,20 +45,21 @@ class SellPostLayout extends Component {
     })
   }
 
-  editPost = index => {
-    console.log(index)
-    if (this.state.name) {
-      this.state.post[index].name = this.state.name
-    }
-    if (this.state.detail) {
-      this.state.post[index].detail = this.state.detail
-    }
-    if (this.state.size) {
-      this.state.post[index].size = this.state.size
-    }
-    if (this.state.price) {
-      this.state.post[index].price = this.state.price
-    }
+  editPost = data => {
+    // console.log(index)
+    // if (this.state.name) {
+    //   this.state.post[index].name = this.state.name
+    // }
+    // if (this.state.detail) {
+    //   this.state.post[index].detail = this.state.detail
+    // }
+    // if (this.state.size) {
+    //   this.state.post[index].size = this.state.size
+    // }
+    // if (this.state.price) {
+    //   this.state.post[index].price = this.state.price
+    // }
+    this.props.editPost(data)
     this.closeModalEdit()
   }
 
@@ -123,6 +125,7 @@ class SellPostLayout extends Component {
 
   render() {
     console.log(this.props.post)
+    console.log(this.state.editpostmodal)
     return (
       <React.Fragment>
         <div className="section-sellpost">
@@ -149,9 +152,9 @@ class SellPostLayout extends Component {
             handlePicture={this.handlePicture}
             handleUpload={this.handleUpload}
           />
-          {this.state.post.length != 0 ? (
+          {this.props.post.length != 0 ? (
             <EditSellPostCard
-              data={this.state.post[this.state.indexeditpost]}
+              data={this.props.post[this.state.indexeditpost]}
               handleInput={this.handleInput}
               editPost={this.editPost}
               state={this.state}
@@ -173,7 +176,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createPost: data => dispatch({ type: actionTypes.CREATEPOST, data: data })
+    createPost: data => dispatch({ type: actionTypes.CREATEPOST, data: data }),
+    editPost: data => dispatch({ type: actionTypes.EDITPOST, data: data })
   }
 }
 
