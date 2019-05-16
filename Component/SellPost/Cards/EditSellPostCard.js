@@ -113,20 +113,6 @@ const EditSellPostCard = props => {
                   <label>USD</label>
                 </Grid.Column>
               </Grid.Row>
-              {/* <Grid.Row columns={2}>
-              <Grid.Column>
-                <label>Picture</label>
-              </Grid.Column>
-              <Grid.Column>
-                <Button
-                  color="blue"
-                  size="large"
-                  onClick={() => props.openModalUploadPicture()}
-                >
-                  Upload
-                </Button>
-              </Grid.Column>
-            </Grid.Row> */}
               <Grid.Row columns={2}>
                 <Grid.Column textAlign="right">
                   <Button
@@ -141,9 +127,7 @@ const EditSellPostCard = props => {
                   <Button
                     color="red"
                     size="large"
-                    onClick={index =>
-                      props.deletePost(props.state.indexeditpost)
-                    }
+                    onClick={data => props.deletePost(props.state)}
                   >
                     Delete
                   </Button>

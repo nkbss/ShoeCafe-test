@@ -8,7 +8,6 @@ class index extends Component {
     return (
       <React.Fragment>
         <HeaderTab />
-        {/* <ShoeCafeLayout /> */}
         <SellPostLayout />
       </React.Fragment>
     )

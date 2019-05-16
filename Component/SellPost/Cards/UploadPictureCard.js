@@ -35,7 +35,6 @@ const UploadPictureCard = props => {
                 <Button
                   color="green"
                   onClick={() => {
-                    // props.uploadStatus()
                     props.handleUpload()
                   }}
                 >

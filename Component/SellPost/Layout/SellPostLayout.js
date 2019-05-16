@@ -12,7 +12,6 @@ import * as actionTypes from '../../../actions/action'
 
 class SellPostLayout extends Component {
   state = {
-    post: [],
     name: null,
     detail: null,
     size: null,
@@ -30,7 +29,6 @@ class SellPostLayout extends Component {
   }
 
   openModalEdit = index => {
-    console.log('clicked')
     this.setState({ editpostmodal: true, indexeditpost: index })
   }
 
@@ -46,19 +44,6 @@ class SellPostLayout extends Component {
   }
 
   editPost = data => {
-    // console.log(index)
-    // if (this.state.name) {
-    //   this.state.post[index].name = this.state.name
-    // }
-    // if (this.state.detail) {
-    //   this.state.post[index].detail = this.state.detail
-    // }
-    // if (this.state.size) {
-    //   this.state.post[index].size = this.state.size
-    // }
-    // if (this.state.price) {
-    //   this.state.post[index].price = this.state.price
-    // }
     this.props.editPost(data)
     this.closeModalEdit()
   }
@@ -102,16 +87,13 @@ class SellPostLayout extends Component {
         this.state.filespicture,
         this.state.filespicture.name
       )
-
-      console.log(upload)
     } else {
       this.setState({ warningupload: true })
     }
   }
 
-  deletePost = index => {
-    this.state.post[index] = null
-    this.state.post = this.state.post.filter(data => data !== null)
+  deletePost = data => {
+    this.props.deletePost(data)
     this.closeModalEdit()
   }
 
@@ -124,8 +106,6 @@ class SellPostLayout extends Component {
   }
 
   render() {
-    console.log(this.props.post)
-    console.log(this.state.editpostmodal)
     return (
       <React.Fragment>
         <div className="section-sellpost">
@@ -177,7 +157,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     createPost: data => dispatch({ type: actionTypes.CREATEPOST, data: data }),
-    editPost: data => dispatch({ type: actionTypes.EDITPOST, data: data })
+    editPost: data => dispatch({ type: actionTypes.EDITPOST, data: data }),
+    deletePost: data => dispatch({ type: actionTypes.DELETEPOST, data: data })
   }
 }
 

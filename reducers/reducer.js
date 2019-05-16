@@ -35,6 +35,13 @@ const reducer = (state = initialState, action) => {
       return {
         post: post
       }
+    case actionTypes.DELETEPOST:
+      post = state.post
+      post[action.data.indexeditpost] = null
+      post = post.filter(data => data !== null)
+      return {
+        post: post
+      }
   }
   return state
 }
